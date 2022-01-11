@@ -3,20 +3,20 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 import FormikPostUploader from './FormikPostUploader'
 
-const AddNewPost = () => {
+const AddNewPost = ({ navigation }) => {
     return (
         <View style={styles.container}>
-            <Header />
+            <Header navigation={navigation} />
             <FormikPostUploader />
         </View>
     )
 }
 
-const Header = () => {
+const Header = ({ navigation }) => {
     return (
         <View style={styles.headerContainer}>
             {/* arrow-back-outline */}
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
                 <Icon name='chevron-back-outline' size={30} color='#73788B'></Icon>
             </TouchableOpacity>
             <Text style={styles.headerText}>NEW POST</Text>

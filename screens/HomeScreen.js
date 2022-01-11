@@ -6,10 +6,10 @@ import Post from '../components/home/Post'
 import Stories from '../components/home/Stories'
 import { POSTS } from '../data/posts'
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
-            <Header />
+            <Header navigation={navigation} />
             <Stories />
             <ScrollView>
 
@@ -20,7 +20,7 @@ const HomeScreen = () => {
                     />
                 ))}
             </ScrollView>
-            <BottonTabs icons={bottonTabIcons}/>
+            <BottonTabs icons={bottonTabIcons} />
         </View>
     )
 }

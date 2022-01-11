@@ -2,12 +2,12 @@ import React from 'react'
 import { View, Text } from 'react-native'
 import AddNewPost from '../components/newPost/AddNewPost'
 
-const NewPostScreens = () => {
+const NewPostScreen = ({ navigation }) => {
     return (
         <View>
-            <AddNewPost />
+            <AddNewPost navigation={navigation} />
         </View>
     )
 }
 
-export default NewPostScreens
+export default NewPostScreen

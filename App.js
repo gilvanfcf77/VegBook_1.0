@@ -1,13 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
-import HomeScreen from './screens/HomeScreen';
+import { StyleSheet } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import NewPostScreen from './screens/NewPostScreen';
+import SignedInStack from './navigation';
 
 export default function App() {
   return (
     <SafeAreaProvider style={styles.androidSafeArea}>
-      <NewPostScreen />
+      <SignedInStack />
     </SafeAreaProvider>
   )
 }

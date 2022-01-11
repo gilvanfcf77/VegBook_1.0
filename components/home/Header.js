@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 
-const Header = () => {
+const Header = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <TouchableOpacity>
@@ -10,7 +10,7 @@ const Header = () => {
             </TouchableOpacity>
 
             <View style={styles.iconsContainer}>
-                <TouchableOpacity >
+                <TouchableOpacity onPress={() => navigation.push('NewPostScreen')}>
                     <Icon name='add-circle-outline' style={styles.icon} size={24} color='#73788B'></Icon>
                 </TouchableOpacity>
                 <TouchableOpacity >
