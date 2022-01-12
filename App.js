@@ -1,11 +1,11 @@
 import { StyleSheet } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import SignedInStack from './navigation';
+import AuthNavigation from './AuthNavigation';
 
 export default function App() {
   return (
     <SafeAreaProvider style={styles.androidSafeArea}>
-      <SignedInStack />
+      <AuthNavigation />
     </SafeAreaProvider>
   )
 }
