@@ -7,7 +7,7 @@ const AddNewPost = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <Header navigation={navigation} />
-            <FormikPostUploader />
+            <FormikPostUploader navigation={navigation} />
         </View>
     )
 }
@@ -15,7 +15,6 @@ const AddNewPost = ({ navigation }) => {
 const Header = ({ navigation }) => {
     return (
         <View style={styles.headerContainer}>
-            {/* arrow-back-outline */}
             <TouchableOpacity onPress={() => navigation.goBack()}>
                 <Icon name='chevron-back-outline' size={30} color='#73788B'></Icon>
             </TouchableOpacity>

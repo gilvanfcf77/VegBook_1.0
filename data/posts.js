@@ -2,15 +2,15 @@ import { USERS } from "./users";
 
 export const POSTS = [
     {
-        imageUrl: 'https://pbs.twimg.com/media/FIFLcifaUAMhDN_?format=jpg&name=large',
+        imageUrl: 'https://s2.glbimg.com/KFlz5D3wx8p1P8U1Yv7mR0y_KHM=/0x0:3648x2736/984x0/smart/filters:strip_icc()/s.glbimg.com/po/rc/media/2014/09/24/10_37_36_586_DSC02756.JPG',
         user: USERS[0].user,
         likes: 525,
-        caption: 'oie eu sou a sakura',
+        caption: 'Bolo de brócolis',
         profile_picture: USERS[0].image,
         comments: [
             {
-                user: 'tatuado05',
-                comment: 'Eita, que coisa bizarra'
+                user: 'amante_de_bolos',
+                comment: 'Parece uma delícia'
             }
         ]
 
