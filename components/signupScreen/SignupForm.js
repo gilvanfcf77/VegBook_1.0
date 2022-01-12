@@ -1,8 +1,13 @@
 import React, { useState } from 'react'
-import { View, Text, TextInput, StyleSheet, Pressable, TouchableOpacity } from 'react-native'
+import { View, Text, TextInput, StyleSheet, Pressable, TouchableOpacity, Alert, LogBox } from 'react-native'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
 import Validator from 'email-validator'
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { app, db } from '../../firebase'
+import { collection, addDoc } from "firebase/firestore";
+
+LogBox.ignoreLogs(['AsyncStorage has been extracted from react-native core and will be removed in a future release']);
 
 const SignupForm = ({ navigation }) => {
 
@@ -14,13 +19,60 @@ const SignupForm = ({ navigation }) => {
             .min(6, 'Your password has to have at least 8 characters')
     })
 
+    const auth = getAuth();
+
+    const getRandonProfilePicture = async () => {
+        const response = await fetch('https://randomuser.me/api')
+        const data = await response.json()
+        return data.results[0].picture.large
+    }
+
+    const onSignup = async (email, password, username) => {
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in
+                const user = userCredential.user;
+                console.log('Usuário ' + user.email + ' criado com sucesso');
+                // ...
+
+                try {
+                    addDoc(collection(db, "users"), {
+                        owner_uid: user.uid,
+                        username: username,
+                        email: user.email,
+                        profile_picture: 'https://randomuser.me/api/portraits/men/64.jpg'
+                    });
+                } catch (e) {
+                    console.error("Error adding document: ", e);
+                }
+            })
+            .catch((error) => {
+                Alert.alert(
+                    'Error',
+                    error.message,
+                    [
+                        {
+                            text: 'Ok',
+                            onPress: () => console.log('OK'),
+                            style: 'cancel'
+                        },
+                        {
+                            text: 'Sign up',
+                            onPress: () => navigation.push('SignupScreen')
+                        }
+                    ]
+                );
+            });
+
+    }
+
     return (
         <View style={styles.wrapper}>
 
             <Formik
                 initialValues={{ email: '', username: '', password: '' }}
                 onSubmit={(values) => {
-                    console.log(values);
+                    onSignup(values.email, values.password, values.username)
                 }}
                 validationSchema={SignupFormSchema}
                 validateOnMount={true}

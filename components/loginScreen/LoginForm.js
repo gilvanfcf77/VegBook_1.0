@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
-import { View, Text, TextInput, StyleSheet, Pressable, TouchableOpacity, Alert } from 'react-native'
+import React from 'react'
+import { View, Text, TextInput, StyleSheet, Pressable, TouchableOpacity, Alert, LogBox } from 'react-native'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
 import Validator from 'email-validator'
-import firebase from '../../firebase'
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
+LogBox.ignoreLogs(['AsyncStorage has been extracted from react-native core and will be removed in a future release']);
 
 const LoginForm = ({ navigation }) => {
 
@@ -14,13 +16,41 @@ const LoginForm = ({ navigation }) => {
             .min(6, 'Your password has to have at least 8 characters')
     })
 
+    const auth = getAuth();
+
+    const onLogin = async (email, password) => {
+        signInWithEmailAndPassword(auth, email, password)
+            .then(() => {
+                // Signed in
+                console.log('Success');
+                // ...
+            })
+            .catch((error) => {
+                Alert.alert(
+                    'Error',
+                    error.message,
+                    [
+                        {
+                            text: 'Ok',
+                            onPress: () => console.log('OK'),
+                            style: 'cancel' 
+                        },
+                        {
+                            text: 'Sign up',
+                            onPress: () => navigation.push('SignupScreen')
+                        }
+                    ]
+                );
+            });
+    }
+
     return (
         <View style={styles.wrapper}>
 
             <Formik
                 initialValues={{ email: '', password: '' }}
                 onSubmit={(values) => {
-                    console.log(values);
+                    onLogin(values.email, values.password)
                 }}
                 validationSchema={LoginFormSchema}
                 validateOnMount={true}
