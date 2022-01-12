@@ -1,8 +1,8 @@
 import React from 'react'
 import { View, StyleSheet, Image } from 'react-native'
-import LoginForm from '../components/loginScreen/LoginForm'
+import SignupForm from '../components/signupScreen/SignupForm'
 
-const LoginScreen = ({ navigation }) => {
+const SignupScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <View style={styles.logoContainer}>
@@ -12,7 +12,7 @@ const LoginScreen = ({ navigation }) => {
                 >
                 </Image>
             </View>
-            <LoginForm navigation={navigation} />
+            <SignupForm navigation={navigation} />
         </View>
     )
 }
@@ -35,4 +35,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default LoginScreen
+export default SignupScreen
