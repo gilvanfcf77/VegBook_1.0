@@ -3,14 +3,12 @@ import { View, SafeAreaView, StyleSheet, ScrollView } from 'react-native'
 import BottonTabs, { bottonTabIcons } from '../components/home/BottonTabs'
 import Header from '../components/home/Header'
 import Post from '../components/home/Post'
-import Stories from '../components/home/Stories'
 import { POSTS } from '../data/posts'
 
 const HomeScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <Header navigation={navigation} />
-            <Stories />
             <ScrollView>
 
                 {POSTS.map((post, index) => (

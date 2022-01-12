@@ -16,33 +16,29 @@ export const POSTS = [
 
     },
     {
-        imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTn9jP_7dixJGxr51KTdxrS3X0eW8mXjLcBw&usqp=CAU',
+        imageUrl: 'https://img.cybercook.com.br/imagens/receitas/313/bolo-amanteigado-de-fecula-de-batata.jpg',
         user: USERS[1].user,
         likes: 1525,
-        caption: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque justo nec eros fermentum faucibus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin dignissim posuere urna, et gravida eros porttitor ac.',
-        profile_picture: USERS[0].image,
+        caption: 'Bolo de batata',
+        profile_picture: USERS[1].image,
         comments: [
             {
-                user: 'hackermesmo',
-                comment: 'Eita, que coisa legal'
+                user: 'ciadosbolos',
+                comment: 'Eita, parece bom'
             },
             {
                 user: 'abigail',
-                comment: 'Eita, que coisa legal'
-            },
-            {
-                user: 'obama',
-                comment: 'Eita, que coisa legal'
+                comment: 'Muito apetitoso'
             }
         ]
 
     },
     {
-        imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTn9jP_7dixJGxr51KTdxrS3X0eW8mXjLcBw&usqp=CAU',
+        imageUrl: 'https://www.receitasagora.com.br/wp-content/uploads/2020/07/receita-de-suco-de-beterraba-scaled.jpg',
         user: USERS[1].user,
-        likes: 1525,
-        caption: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque justo nec eros fermentum faucibus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin dignissim posuere urna, et gravida eros porttitor ac.',
-        profile_picture: USERS[0].image,
+        likes: 1327,
+        caption: 'Suco de beterraba',
+        profile_picture: USERS[1].image,
         comments: [
 
         ]

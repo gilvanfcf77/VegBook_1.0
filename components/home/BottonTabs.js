@@ -15,16 +15,6 @@ export const bottonTabIcons = [
         inactive: 'search-outline'
     },
     {
-        name: 'Reels',
-        active: 'play-circle',
-        inactive: 'play-circle-outline'
-    },
-    {
-        name: 'Shop',
-        active: 'card',
-        inactive: 'card-outline'
-    },
-    {
         name: 'Profile',
         active: 'person',
         inactive: 'person-outline'
